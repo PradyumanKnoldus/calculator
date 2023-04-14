@@ -47,7 +47,7 @@ class MathematicalOperations {
 
     val resultFuture: Future[Seq[Double]] = Future {
       numbers.flatMap { number =>
-        val fibonacciSeries = fibonacciOperator.validateAndExecute(Seq(number))
+        val fibonacciSeries = fibonacciOperator.validateAndExecute(Seq(number)).filterNot(_ == 0)
 
         val oddValues = oddOperator.validateAndExecute(fibonacciSeries)
 
